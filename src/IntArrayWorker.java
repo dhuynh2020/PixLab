@@ -12,6 +12,22 @@ public class IntArrayWorker {
 		matrix = theMatrix;
 	}
 
+	public int getCount(int num){
+		int count = 0; 
+		for(int row = 0; row < matrix.length; row++){
+			for (int col = 0; col < matrix[0].length; col++){
+				if( num == matrix[row][col]){
+					count = count + 1; 
+				}
+			}
+		} 
+		return count;
+	}
+
+	public int getLargest(int num1, int num2, int num3, int num4, int num5, int num6){
+		
+	}
+
 	/**
 	 * Method to return the total
 	 * 
