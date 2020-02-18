@@ -24,8 +24,24 @@ public class IntArrayWorker {
 		return count;
 	}
 
-	public int getLargest(int num1, int num2, int num3, int num4, int num5, int num6){
-		
+	public int getLargest(){
+		int largest = matrix[0][0]; 
+		for(int row = 0; row < matrix.length; row++){
+			for(int col = 0; col < matrix[0].length; col++){
+				if(largest < matrix[row][col]){
+					largest = matrix[row][col];
+				}
+			}
+		}
+		return largest; 
+	}
+
+	public int getColTotal(int col){
+		int total = 0;
+		for(int row = 0; row < matrix.length; row++){
+				total = total + matrix[row][col];
+		}
+		return total; 
 	}
 
 	/**
