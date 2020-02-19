@@ -85,12 +85,66 @@ public class Picture extends SimplePicture {
 
 	}
 
+	public void onlyBlue(){
+		Pixel[][] pixels = this.getPixels2D();
+		for (Pixel[] rowArray : pixels) 
+		{
+			for (Pixel pixelObj : rowArray)
+			{
+				pixelObj.setGreen(0);
+				pixelObj.setRed(0);
+				
+			}
+		}
+	}
+	/** Method to subtract everything by 255 */
+	public void negate(){
+		Pixel[][] pixels = this.getPixels2D();
+		for(Pixel[] rowArray : pixels)
+		{
+			for(Pixel pixelObj : rowArray)
+			{
+				pixelObj.setRed(255 - pixelObj.getRed());
+				pixelObj.setGreen(255 - pixelObj.getGreen());
+				pixelObj.setBlue(255 - pixelObj.getBlue());
+			}
+		}
+	}
+
+	public void grayscale(){
+		Pixel[][] pixels = this.getPixels2D();
+		for(Pixel[] rowArray : pixels) 
+		{
+			for(Pixel pixelObj : rowArray)
+			{
+				int average = pixelObj.getRed() + pixelObj.getBlue() + pixelObj.getGreen() / 3;
+				pixelObj.setRed(average );
+				pixelObj.setGreen(average );
+				pixelObj.setBlue(average );
+
+			}
+		}
+	}
+
+
+
 	/** Method to set the blue to 0 */
 	public void zeroBlue() {
 		Pixel[][] pixels = this.getPixels2D();
 		for (Pixel[] rowArray : pixels) {
 			for (Pixel pixelObj : rowArray) {
 				pixelObj.setBlue(0);
+			}
+		}
+	}
+	
+	public void fixUnderwater() {
+		Pixel[][] pixels = this.getPixels2D();
+		for (Pixel[] rowArray : pixels) {
+			for (Pixel pixelObj : rowArray) {
+				if(pixelObj.getGreen() > pixelObj.getBlue()){
+					pixelObj.setGreen(0);
+				}
 			}
 		}
 	}

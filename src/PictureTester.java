@@ -16,7 +16,43 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
-  
+  /** Method to test onlyBlue */
+  public static void testKeepOnlyBlue()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.onlyBlue();
+    beach.explore();
+  }
+
+  /** Method to test negate */
+  public static void testNegate()
+  {
+    Picture beach = new Picture("beach.jpg");
+    beach.explore();
+    beach.negate();
+    beach.explore();
+
+  }
+
+  /** Method to test grayscale */
+  public static void testGrayscale()
+  {
+    Picture beach = new Picture("water.jpg");
+    beach.explore();
+    beach.grayscale();
+    beach.explore();
+
+  }
+  public static void testFixUnderwater()
+  {
+    Picture water = new Picture("water.jpg");
+    water.explore();
+    water.fixUnderwater();
+    water.explore();
+
+  }
+
   /** Method to test mirrorVertical */
   public static void testMirrorVertical()
   {
@@ -42,6 +78,8 @@ public class PictureTester
     canvas.createCollage();
     canvas.explore();
   }
+
+
   
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
@@ -58,13 +96,13 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    //testKeepOnlyBlue();
+    // testZeroBlue();
+    // testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
-    //testFixUnderwater();
+    // testNegate();
+    // testGrayscale();
+    testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();
     //testMirrorArms();
@@ -72,7 +110,7 @@ public class PictureTester
     //testMirrorDiagonal();
     //testCollage();
     //testCopy();
-    //testEdgeDetection();
+    // testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
     //testEncodeAndDecode();
