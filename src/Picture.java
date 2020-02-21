@@ -181,6 +181,53 @@ public class Picture extends SimplePicture {
 		}
 	}
 
+	public void mirrorHorizontal(){
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel topPixel = null;
+		Pixel botPixel = null;
+		int width = pixels[0].length;
+		for (int row = 0; row < pixels.length / 2; row++) {
+			for (int col = 0; col < width; col++) {
+				topPixel = pixels[row][col];
+				botPixel = pixels[pixels.length - 1 - row][col];
+				botPixel.setColor(topPixel.getColor());
+			}
+		}
+	}
+	public void mirrorHorizontalBotToTop(){
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel topPixel = null;
+		Pixel botPixel = null;
+		int width = pixels[0].length;
+		for (int row = 0; row < pixels.length / 2; row++) {
+			for (int col = 0; col < width; col++) {
+				topPixel = pixels[row][col];
+				botPixel = pixels[pixels.length - 1 - row][col];
+				topPixel.setColor(botPixel.getColor());
+			}
+		}
+	}
+
+	public void mirrorDiagonal()
+	{
+		Pixel[][] pixels = this.getPixels2D();
+		Pixel topPixel = null;
+		Pixel botPixel = null;
+		int height = pixels.length;
+		int width = pixels[0].length;
+		for (int row = 0; row < height; row++){
+			for (int col = 0; col < width; col++){
+				try{
+					topPixel = pixels[row][col];
+					botPixel = pixels[col][row];
+					topPixel.setColor(botPixel.getColor());
+				}
+
+				catch (Exception e){}
+			}
+		}
+	}
+
 	/** Mirror just part of a picture of a temple */
 	public void mirrorTemple() {
 		int mirrorPoint = 276;
@@ -192,7 +239,7 @@ public class Picture extends SimplePicture {
 		// loop through the rows
 		for (int row = 27; row < 97; row++) {
 			// loop from 13 to just before the mirror point
-			for (int col = 13; col < mirrorPoint; col++) {
+			for (int col = 13; col < mirrorPoint; col++) {	
 
 				leftPixel = pixels[row][col];
 				rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
