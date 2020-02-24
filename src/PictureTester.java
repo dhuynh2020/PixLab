@@ -70,7 +70,23 @@ public class PictureTester
     temple.mirrorTemple();
     temple.explore();
   }
-
+  
+  public static void testMirrorArms()
+  {
+    Picture snowman = new Picture("seagull.jpg");
+    snowman.explore();
+    snowman.mirrorArms();
+    snowman.explore();
+  }  
+  
+  public static void testMirrorGull()
+  {
+    Picture gull = new Picture("seagull.jpg");
+    gull.explore();
+    gull.mirrorGull();
+    gull.explore();
+  }
+ 
   public static void testMirrorDiagonal(){
     Picture beach = new Picture("beach.jpg");
     beach.explore();
@@ -93,7 +109,7 @@ public class PictureTester
     bike.explore();
   }
 
-
+  
   
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
@@ -102,14 +118,13 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
-
+  
   public static void testMirrorHorizontal()
   {
     Picture bike = new Picture("redMotorcycle.jpg");
     bike.mirrorHorizontal();
     bike.explore();
   }
-  
   public static void testMirrorHorizontalBotToTop()
   {
     Picture bike = new Picture("redMotorcycle.jpg");
@@ -117,8 +132,10 @@ public class PictureTester
     bike.explore();
   }
   
+  
+  
   /** Main method for testing.  Every class can have a main
-    * method in Java */
+   * method in Java */
   public static void main(String[] args)
   {
     // uncomment a call here to run a test
@@ -135,9 +152,9 @@ public class PictureTester
     // testGrayscale();
     // testFixUnderwater();
     // testMirrorVertical();
-    testMirrorTemple();
-    //testMirrorArms();
-    //testMirrorGull();
+    // testMirrorTemple();
+    // testMirrorArms();
+    testMirrorGull();
     // testMirrorDiagonal();
     //testCollage();
     //testCopy();
