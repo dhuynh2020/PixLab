@@ -314,6 +314,20 @@ public class Picture extends SimplePicture {
 		}
 	}
 
+	public void newCopy(Picture fromPic, int fromStartRow, int fromStartCol, int fromEndRow, int fromEndCol, int toStartRow, int toStartCol)
+	{
+		Pixel fromPixel = null;
+		Pixel toPixel = null;
+		Pixel[][] toPixels = this.getPixels2D();
+		Pixel[][] fromPixels = fromPic.getPixels2D();
+  	 for (int fromRow = fromStartRow, toRow = toStartRow; fromRow <= fromEndRow && toRow < toPixels.length; fromRow++, toRow++){
+		   for (int fromCol = fromStartCol, toCol = toStartCol; fromCol <= fromEndCol && toCol < toPixels[0].length; fromCol++, toCol++){
+			   fromPixel = fromPixels[fromRow][fromCol];
+			   toPixel = toPixels[toRow][toCol];
+			   toPixel.setColor(fromPixel.getColor());
+		}
+		}
+	} 
 	/** Method to create a collage of several pictures */
 	public void createCollage() {
 		Picture flower1 = new Picture("flower1.jpg");
@@ -329,6 +343,24 @@ public class Picture extends SimplePicture {
 		this.mirrorVertical();
 		this.write("collage.jpg");
 	}
+
+    public void myCollage(){
+
+        Picture koala1 = new Picture("koala.jpg");
+        Picture arch = new Picture("arch.jpg");
+        Picture beach = new Picture ("beach.jpg");
+
+        this.copy(koala1, 0, 0); 
+        this.copy(arch, 100, 0);
+        this.copy(koala1, 200, 0);
+        Picture archNoBlue = new Picture(arch);
+        archNoBlue.zeroBlue();
+        this.copy(archNoBlue, 300, 0);
+        this.copy(beach, 400, 0);
+        this.copy(beach, 500, 0);
+        this.mirrorVertical();
+        this.write("collage.jpg");
+    }
 
 	/**
 	 * Method to show large changes in color

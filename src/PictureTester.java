@@ -102,15 +102,30 @@ public class PictureTester
     canvas.explore();
   }
 
+  public static void testNewCopy()
+  {
+    Picture snow = new Picture("snowman.jpg");
+    Picture snow2 = new Picture("snowman.jpg");
+    snow.explore();
+    snow.newCopy(snow2, 81, 164, 161, 242, 230, 57);
+    snow.newCopy(snow2, 81, 164, 161, 242, 230, 57);
+    snow.explore();  
+  }
+  
+    
+    public static void testMyCollage()
+    {
+      Picture picture = new Picture("640x480.jpg");
+      picture.myCollage();
+      picture.explore();
+    }
+    
   public static void testMirrorVerticalRightToLeft()
   {
     Picture bike = new Picture("redMotorcycle.jpg");
     bike.mirrorVerticalRightToLeft();
     bike.explore();
   }
-
-  
-  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -131,7 +146,8 @@ public class PictureTester
     bike.mirrorHorizontalBotToTop();
     bike.explore();
   }
-  
+
+ 
   
   
   /** Main method for testing.  Every class can have a main
@@ -154,10 +170,10 @@ public class PictureTester
     // testMirrorVertical();
     // testMirrorTemple();
     // testMirrorArms();
-    testMirrorGull();
+    // testMirrorGull();
     // testMirrorDiagonal();
-    //testCollage();
-    //testCopy();
+    // testMyCollage();
+    testNewCopy();
     // testEdgeDetection();
     //testEdgeDetection2();
     //testChromakey();
